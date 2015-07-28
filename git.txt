@@ -1,0 +1,186 @@
+创建版本库
+初始化一个Git仓库，使用git init命令。
+添加文件到Git仓库，分两步：
+git add <file>，注意，可反复多次使用，添加多个文件；
+git commit，完成。
+=========================================================================
+时光机穿梭
+git status告诉你有文件被修改过
+git diff可以查看修改内容。
+git status -s 查看变动的文件和修改
+=========================================================================
+版本回退
+HEAD:表示当前版本
+HEAD^ :上一个版本就是  git reset --hard HEAD^
+HEAD^^:上上一个版本就是
+HEAD~100:上100个版本写100个^比较容易数不过来
+git reflog:查看所有操作
+=========================================================================
+工作区和暂存区
+git add (对新增文件和修改都可以) 把内容加到暂存区,commit 来提交到分支,然后暂存区就为空
+git reset HEAD filename 可以把add但是没commit 的在暂存区的内容回滚出暂存区
+git commit -am 'msg' 这里的a 就是把工作区中没有提交到暂存区的内容提到咱存取并且commit
+=========================================================================
+管理修改
+git add 后的修改不能被commit
+git diff HEAD -- readme.txt查看工作区和版本库的差异
+git diff HEAD 查看所有差异
+=========================================================================
+撤销修改
+git checkout -- file 可以丢弃工作区的修改, git checkout xxxx创建分支的意思
+git reset HEAD file 可以把暂存区的修改撤销掉（unstage），重新放回工作区
+git reset命令既可以回退版本，也可以把暂存区的修改回退到工作区
+=========================================================================
+删除文件
+一个版本库中的文件直接rm后工作区和版本库不一致
+方法1: git rm xxx; git commmit -m 'del a file'
+方法2: git checkout -- filename 放弃工作区删除
+git checkout用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。
+=========================================================================
+添加远程库
+把本地git关联到github, orgin 是远程库的名字(习惯写法)
+git remote add origin git@github.com:wcybxzj/learngit.git
+git push -u origin master
+把本地库的内容推送到远程，用git push命令，实际上是把当前分支master推送到远程。
+由于远程库是空的，我们第一次推送master分支时，加上了-u参数.
+Git会把本地的master分支内容推送的远程新的master分支，
+还会把本地的master分支和远程的master分支关联，以后可以简化命令。
+git push origin master
+=========================================================================
+从远程库克隆
+git clone git@github.com:michaelliao/gitskills.git
+=========================================================================
+创建与合并分支
+查看分支：git branch
+创建分支：git branch <name>
+切换分支：git checkout <name>
+创建+切换分支：git checkout -b <name>
+合并某分支到当前分支：git merge <name>
+删除分支：git branch -d <name>
+=========================================================================
+解决冲突
+查看路线图
+git log --graph --pretty=oneline --abbrev-commit
+=========================================================================
+分支管理策略
+git merge,禁用Fast forward.
+git merge --no-ff -m "merge with no-ff" dev001  一旦开始使用--no-ff 这个分支后边都是默认使用这个选项
+合并分支时，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，
+能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。
+分支结构应该是 master/test/xiaoming/xiaohong
+=========================================================================
+Bug分支
+每个bug都可以通过一个新的临时分支来修复，修复后，合并分支，然后将临时分支删除。
+git stash 可以用于暂存代码。
+比如需要切换一个branch去做其他的事情，但是当前又有一些代码没法commit.
+你显然也不会想要把这些修改checkout.该命令就是为了解决这一个问题.
+git stash
+git stash list
+恢复方式1:
+git stash apply恢复，但是恢复后，stash内容并不删除，需要git stash drop<id>；
+恢复方式2:
+git stash pop，恢复的同时把stash内容也删了：
+git stash clear 清楚所有stash
+=========================================================================
+Feature分支
+开发一个新feature，最好新建一个分支；
+如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除。
+=========================================================================
+多人协作
+推送分支:
+git remote
+git remote -v
+git push origin master
+git push origin dev
+ 
+master分支是主分支，因此要时刻与远程同步；
+dev分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；
+bug分支只用于在本地修复bug，就没必要推到远程了
+feature分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。
+ 
+抓取分支:
+1.获取github代码
+clone代码必须用这个格式,只有这个格式后边推送才没问题
+git clone git@github.com:wcybxzj/learngit.git
+git push origin mybranch 把创建的分支推送到github
+ 
+2.问题:clone 中如果没按照上边格式clone出现问题
+fatal: remote error: You can't push to git 解决办法
+git remote rm origin
+git remote add origin git@github.com:wcybxzj/learngit.git
+ 
+3.github中的冲突解决(远程冲突):
+error: failed to push some refs to "xxxxgitxxxxxxxxxxx"
+需要git pull 然后解决冲突后再提交
+git pull也失败了，原因是没有指定本地dev分支与远程origin/dev分支的链接.
+设置dev和origin/dev的链接：
+git branch --set-upstream-to=origin/dev dev
+ 
+4.获取特定的branch
+git clone git@github.com:wcybxzj/examples
+git branch -a
+git checkout <branch_name>
+git branch chapter-1
+ 
+5.典型多人工作模式
+查看远程库信息，使用git remote -v；
+本地新建的分支如果不推送到远程，对其他人就是不可见的；
+从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；
+在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；
+建立本地分支和远程分支的关联，使用git branch --set-upstream-to=branch-name origin/branch-name；
+从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。
+=========================================================================
+标签管理:
+Git的标签虽然是版本库的快照，但其实它就是指向某个commit的指针
+（跟分支很像对不对？但是分支可以移动，标签不能移动），所以，创建和删除标签都是瞬间完成的。
+=========================================================================
+创建标签
+git tag v1.0
+git tag 查看标签
+git show v1.0
+ 
+给历史版本打标签
+git log --pretty=oneline --abbrev-commit
+git tag v0.9 <commet-id>
+ 
+可以创建带有说明的标签，用-a指定标签名，-m指定说明文字：
+git tag -a v0.1 -m "version 0.1 released" 3628164
+=========================================================================
+操作标签
+git tag -d v0.1 删除标签
+git push origin v1.0 把标签推送到远程
+git push origin --tags 把所有标签推送
+git tag -d v1.0
+git push origin :refs/tags/v1.0
+=========================================================================
+使用GitHub
+先fork别人,clone本地然后改,最后github上pull request
+=========================================================================
+忽略特殊文件
+.gitignore:
+[php]
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+# Python:
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build
+# My configurations:
+db.ini
+deploy_key_rsa
+[/php]
+=========================================================================
+命令别名
+~/.gitconfig
+=========================================================================
+搭建Git服务器
+要方便管理公钥，用Gitosis；
+要像SVN那样变态地控制权限，用Gitolite。
+ 
+cheat-sheet for git
+http://www.git-tower.com/blog/assets/2013-05-22-git-cheat-sheet/cheat-sheet-large01.png
