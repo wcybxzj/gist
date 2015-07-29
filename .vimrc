@@ -274,7 +274,7 @@ set foldmethod=indent "set default foldmethod
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 set tags=tags;
 set autochdir"
-set list listchars=tab:>-,trail:- "tab 显示
+"set list listchars=tab:>-,trail:- "tab 显示
 
 function! MySetExecutableIfScript(line1, current_file)
 	if a:line1 =~ '^#!\(/usr\)*/bin/'
@@ -299,21 +299,12 @@ set cuc
 "-----------------------------------------------------------------
 " plugin - DoxygenToolkit.vim  由注释生成文档，并且能够快速生成函数标准注释
 "-----------------------------------------------------------------
-let g:DoxygenToolkit_authorName="ybx"
-
-"let g:DoxygenToolkit_briefTag_funcName="yes"
-"map <leader>da :DoxAuthor<CR>
-"map <leader>df :Dox<CR>
-"map <leader>db :DoxBlock<CR>
-"map <leader>dc a /*  */<LEFT><LEFT><LEFT>
-
-"let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
-"let g:DoxygenToolkit_paramTag_pre="@Param "
-"let g:DoxygenToolkit_returnTag="@Returns   "
-let g:DoxygenToolkit_authorName="zctech games"
-"let g:DoxygenToolkit_licenseTag="My own license"
-
-
+let g:DoxygenToolkit_compactDoc = "yes"
+let g:DoxygenToolkit_returnTag="@returns "
+let g:DoxygenToolkit_paramTag_pre="@param "
+let g:DoxygenToolkit_blockHeader=""
+let g:DoxygenToolkit_blockFooter=""
+let g:DoxygenToolkit_authorName="yangbx@chuchujie.com"
 
 if(has("win32") || has("win95") || has("win64") || has("win16"))
     let g:iswindows=1
@@ -321,112 +312,12 @@ else
     let g:iswindows=0
 endif
 
-function Do_OneFileMake()
-    if expand("%:p:h")!=getcwd()
-        echohl WarningMsg | echo "Fail to make! This file is not in the current dir! Press <F7> to redirect to the dir of this file." | echohl None
-        return
-    endif
-    let sourcefileename=expand("%:t")
-    if (sourcefileename=="" || (&filetype!="cpp" && &filetype!="c"))
-        echohl WarningMsg | echo "Fail to make! Please select the right file!" | echohl None
-        return
-    endif
-    let deletedspacefilename=substitute(sourcefileename,' ','','g')
-    if strlen(deletedspacefilename)!=strlen(sourcefileename)
-        echohl WarningMsg | echo "Fail to make! Please delete the spaces in the filename!" | echohl None
-        return
-    endif
-    if &filetype=="c"
-        if g:iswindows==1
-            set makeprg=gcc\ -o\ %<.exe\ %
-        else
-            set makeprg=gcc\ -o\ %<\ %
-        endif
-    elseif &filetype=="cpp"
-        if g:iswindows==1
-            set makeprg=g++\ -o\ %<.exe\ %
-        else
-            set makeprg=g++\ -o\ %<\ %
-        endif
-        "elseif &filetype=="cs"
-        "set makeprg=csc\ \/nologo\ \/out:%<.exe\ %
-    endif
-    if(g:iswindows==1)
-        let outfilename=substitute(sourcefileename,'\(\.[^.]*\)' ,'.exe','g')
-        let toexename=outfilename
-    else
-        let outfilename=substitute(sourcefileename,'\(\.[^.]*\)' ,'','g')
-        let toexename=outfilename
-    endif
-    if filereadable(outfilename)
-        if(g:iswindows==1)
-            let outdeletedsuccess=delete(getcwd()."\\".outfilename)
-        else
-            let outdeletedsuccess=delete("./".outfilename)
-        endif
-        if(outdeletedsuccess!=0)
-            set makeprg=make
-            echohl WarningMsg | echo "Fail to make! I cannot delete the ".outfilename | echohl None
-            return
-        endif
-    endif
-    execute "silent make"
-    set makeprg=make
-    execute "normal :"
-    if filereadable(outfilename)
-        if(g:iswindows==1)
-            execute "!".toexename
-        else
-            execute "!./".toexename
-        endif
-    endif
-	execute "copen"
-endfunction
-
-function Do_make()
-    set makeprg=make
-    execute "silent make"
-    execute "copen"
-endfunction
-
-function Func()
-	:1,$s/=\$/= \$/g
-	:1,$s/,\(\w\)/, \1/g
-	:1,$s/,'/, '\1/g
-	:1,$s/,\$/, \$/g
-	:1,$s/\(\w\)?\(\w\)/\1 ? \2/g
-	:1,$s/)?\(\w\)/) ? \2/g
-	:1,$s/]?\(\w\)/] ? \2/g
-	:1,$s/)?\$/) ? \$/g
-	:1,$s/]:'/] : '/g
-	:1,$s/){/) {/g
-	:1,$s/}else/} else/g
-	:1,$s/\(\w\)=>\(\w\)/\1 => \2/g
-	:1,$s/\(\w\)||\(\w\)/\1 || \2/g
-	:1,$s/\(\w\)&&\(\w\)/\1 && \2/g
-	:1,$s/\(\w\)!=/\1 !=/g
-	:1,$s/\(\w\)=\(\w\)/\1 = \2/g
-	:1,$s/\(\w\)=/\1 =/g
-	:1,$s/=\(\w\)/= \1/g
-	:1,$s/]=/] =/g
-	:1,$s/=\$/= \$/g
-	:1,$s/=\'/= \'/g
-	:1,$s/=\"/= \"/g
-endfunction
-
 function FuncUtf8Unix()
 	:set fenc=utf-8
 	:set fileformat=unix
 endfunction
 
-"单个文件编译
-map <leader>c :call Do_OneFileMake()<CR>
-"进行make的设置
-map <leader>m :call Do_make()<CR>
-map <leader>sm :silent make clean<CR>
-map <leader>q :ccl<CR>
-
-nmap <leader>php :!php -l %<CR>
+nmap <leader>pt :!php -l %<CR>
 nmap <leader>py :!python %<CR>
 map  <leader>- :set co=50<CR>:set lines=150<CR>
 map  <leader>= :set co=298<CR>:set lines=250<CR>
@@ -447,17 +338,6 @@ map <C-h> :%s/^\+\s//<CR>
 map <C-l> :%g/^$/d<CR>
 map <C-e> :lclose<CR>
 
-"pymode settings
-nmap <silent> <leader>8 :PymodeLintAuto<CR>
-let g:pymode_quickfix_minheight = 4
-let g:pymode_quickfix_maxheight = 6
-let g:pymode_lint_on_write = 1
-let g:pymode_rope_completion = 0
-let g:pymode_folding = 0
-"pymode 点号complete后关闭stratch(介绍)窗口
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
 "in linux not necessary use tabn tabp 来实现切换tab
 map <leader>1 1gt
 map <leader>2 2gt
@@ -469,8 +349,3 @@ map <leader>7 7gt
 map <leader>8 8gt
 map <leader>9 9gt
 map <leader>0 :tablast<CR>
-"
-nmap w=  :resize +13<CR>
-nmap w-  :resize -13<CR>
-nmap w,  :vertical resize -13<CR>
-nmap w.  :vertical resize +13<CR>

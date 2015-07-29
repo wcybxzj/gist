@@ -79,7 +79,7 @@ alias git-info='git  remote show origin'
 alias g11='g++ --std=c++11'
 
 alias push_jiepy='git push origin master; git push log master;'
-alias db-dev='mysql -uroot -hdb-dev-00.cvdcrhews6fj.rds.cn-north-1.amazonaws.com.cn -p8uxUUqk9NJtFTh'
+alias db-dev='mysql -uroot -hdb-dev-00.cvdcrhews6fj.rds.cn-north-1.amazonaws.com.cn -p8uxUUqk9NJtFTh shop'
 alias db-s0='mysql -uroot -hshangcheng_online_s0.cvdcrhews6fj.rds.cn-north-1.amazonaws.com.cn -p'
 
 export PATH=/usr/local/bin:$PATH
