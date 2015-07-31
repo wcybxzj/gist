@@ -11,6 +11,7 @@ alias f='find'
 alias p2='arch -i386 python'
 alias p3='python3'
 alias mongod='sudo mongod --config /usr/local/etc/mongod.conf &'
+alias ab='/usr/local/Cellar/httpd24/2.4.12/bin/ab'
 alias memcached='memcached -d -P /tmp/memcached.pid'
 alias goagent='nohup python /Users/yangbingxi/goagent/local/proxy.py  2>&1 > /dev/null &'
 alias crolax='nohup /Users/yangbingxi/crolax/shadowsocks-local-mac -c  /Users/yangbingxi/crolax/config.json 2>&1 > /dev/null &'
@@ -56,31 +57,18 @@ _completemarks() {
 complete -F _completemarks g unmark
 #mount ubuntun
 alias ubuntu='sshfs wcybxzj@192.168.1.109:/ ~/mountpoint -oauto_cache,reconnect,defer_permissions,negative_vncache,volname=somename'
-alias log_m='sshfs root@42.62.24.92:/data/www/dev/ybx  /Users/yangbingxi/www/log_m -oauto_cache,reconnect,defer_permissions,negative_vncache,volname=somename'
-alias dev_m='sshfs root@42.62.24.92:/data/www/dev/  /Users/yangbingxi/www/dev/ -oauto_cache,reconnect,defer_permissions,negative_vncache,volname=somename'
-alias log_root_m='sshfs root@42.62.24.92:/  /Users/yangbingxi/www/log_root_m -oauto_cache,reconnect,defer_permissions,negative_vncache,volname=somename'
-alias ali_m='sshfs root@182.92.111.153:/  /Users/yangbingxi/py_www/ali -oauto_cache,reconnect,defer_permissions,negative_vncache,volname=somename'
+alias ali_m='sshfs root@123.56.108.205:/  /Users/yangbingxi/ali -oauto_cache,reconnect,defer_permissions,negative_vncache,volname=somename'
+alias un_ubuntu='sudo umount -f /Users/yangbingxi/mountpoint'
+alias un_ali_m='sudo umount -f /Users/yangbingxi/ali'
 
 alias jump="sudo ssh -i /Users/yangbingxi/.ssh/key.txt rd@54.223.154.105"
-
-alias un_log_m='sudo umount -f /Users/yangbingxi/www/log_m'
-alias un_ubuntu='sudo umount -f /Users/yangbingxi/mountpoint'
-
-alias lost_s='ssh root@42.62.24.87 -p 2208' #192.168.133.87
-alias second_s='ssh root@42.62.52.67 -p 2208' #192.168.133.67
-alias web2_s='ssh root@42.62.24.83 -p 2208' #192.168.133.101
-alias cool_s='ssh root@42.62.52.68 -p 2208' #192.168.133.68
-alias luck_s='ssh root@42.62.29.11 -p 2208' #192.168.133.189
-alias duke_s='ssh root@42.62.24.85 -p 2208'
-alias ali_s='ssh root@182.92.111.153 -p 22'
-alias zhao_s='ssh root@10.10.10.100'
+alias ali='ssh root@123.56.108.205 -i ~/.ssh/id_rsa'
+alias db-dev='mysql -uroot -hdb-dev-00.cvdcrhews6fj.rds.cn-north-1.amazonaws.com.cn -p8uxUUqk9NJtFTh shop'
 
 alias git-info='git  remote show origin'
 alias g11='g++ --std=c++11'
 
 alias push_jiepy='git push origin master; git push log master;'
-alias db-dev='mysql -uroot -hdb-dev-00.cvdcrhews6fj.rds.cn-north-1.amazonaws.com.cn -p8uxUUqk9NJtFTh shop'
-alias db-s0='mysql -uroot -hshangcheng_online_s0.cvdcrhews6fj.rds.cn-north-1.amazonaws.com.cn -p'
 
 export PATH=/usr/local/bin:$PATH
 source /usr/local/bin/virtualenvwrapper.sh

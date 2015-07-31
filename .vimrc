@@ -300,7 +300,7 @@ set cuc
 " plugin - DoxygenToolkit.vim  由注释生成文档，并且能够快速生成函数标准注释
 "-----------------------------------------------------------------
 let g:DoxygenToolkit_compactDoc = "yes"
-let g:DoxygenToolkit_returnTag="@returns "
+let g:DoxygenToolkit_returnTag="@return "
 let g:DoxygenToolkit_paramTag_pre="@param "
 let g:DoxygenToolkit_blockHeader=""
 let g:DoxygenToolkit_blockFooter=""
@@ -319,7 +319,7 @@ endfunction
 
 nmap <leader>pt :!php -l %<CR>
 nmap <leader>py :!python %<CR>
-map  <leader>- :set co=50<CR>:set lines=150<CR>
+map  <leader>- :set co=90<CR>:set lines=350<CR>
 map  <leader>= :set co=298<CR>:set lines=250<CR>
 map  <leader>] :set co=168<CR>:set lines=17<CR>
 
