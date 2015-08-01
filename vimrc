@@ -28,8 +28,8 @@ Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'klen/python-mode'
 Plugin 'rkulla/pydiction'
 " The default mapping to toggle the plugin is <Leader>ig
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'vim-scripts/netrw.vim'
+"Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'vim-scripts/netrw.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -73,6 +73,8 @@ elseif has("mac")
 	let g:OS#mac = 1
 	let g:OS#win = 0
 	let g:OS#unix = 0
+	set fileformat=unix
+	set fileformats=unix,dos,mac
 elseif has("unix")
 	let g:OS#name = "unix"
 	let g:OS#unix = 1
@@ -98,27 +100,23 @@ set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+
 set langmenu=zh_CN.utf-8
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 language messages zh_CN.UTF-8
-
 filetype indent plugin on
 filetype indent on
 syntax on
 filetype on
-
-set fileformat=unix
-set fileformats=unix,dos,mac
-
-" set default(normal) window size.
-set columns=75
-set lines=100
-
 " theme, skin, color
 if g:OS#gui
-	colo desert
+	" set default(normal) window size.
+	set columns=75
+	set lines=100
 endif
+colo desert
+
 
 if has('multi_byte_ime')
 	highlight Cursor guibg=#F0E68C guifg=#708090
@@ -293,8 +291,8 @@ let g:dbgPavimBreakAtEntry = 0
 "pydiction
 let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
 
-set cc=80
-set cuc
+"set cc=80
+"set cuc
 
 "-----------------------------------------------------------------
 " plugin - DoxygenToolkit.vim  由注释生成文档，并且能够快速生成函数标准注释
