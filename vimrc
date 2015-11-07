@@ -323,12 +323,9 @@ map  <leader>] :set co=168<CR>:set lines=17<CR>
 
 map <C-i> :call FuncUtf8Unix()<CR>
 imap <C-y>  :call Func()<CR>
-imap <C-t> <Esc>:tabnew<cr>
 nmap <C-t> :tabnew<cr>
-imap <C-tab> :tabnext<cr>
 nmap <C-tab> :tabnext<cr>
 imap <C-S-tab> :tabprevious<cr>
-nmap <C-S-tab> :tabprevious<cr>
 map <C-n> :NERDTreeToggle<CR>
 map <C-m> :MRU<CR>
 map <C-k> :%s/\s\+$//<CR>
@@ -347,3 +344,5 @@ map <leader>7 7gt
 map <leader>8 8gt
 map <leader>9 9gt
 map <leader>0 :tablast<CR>
+map <leader>n :tabn<CR>
+map <leader>p :tabp<CR>
