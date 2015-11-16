@@ -23,7 +23,7 @@ Plugin 'Raimondi/delimitMate'
 "ds " 删除成对的 双引号
 Plugin 'tpope/vim-surround'
 "O垂直打开,p水平打开,t做为新tab
-Plugin 'vim-scripts/mru.vim'
+"Plugin 'vim-scripts/mru.vim'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'klen/python-mode'
 Plugin 'rkulla/pydiction'
@@ -90,11 +90,6 @@ else
 	au GUIEnter * winpos 0 0
 endif
 
-if g:OS#win
-	source $VIMRUNTIME/vimrc_example.vim
-	source $VIMRUNTIME/mswin.vim
-	behave mswin
-endif
 
 set encoding=utf-8
 set termencoding=utf-8
@@ -102,8 +97,6 @@ set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 
 set langmenu=zh_CN.utf-8
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
 language messages zh_CN.UTF-8
 filetype indent plugin on
 filetype indent on
@@ -327,7 +320,6 @@ nmap <C-t> :tabnew<cr>
 nmap <C-tab> :tabnext<cr>
 imap <C-S-tab> :tabprevious<cr>
 map <C-n> :NERDTreeToggle<CR>
-map <C-m> :MRU<CR>
 map <C-k> :%s/\s\+$//<CR>
 map <C-h> :%s/^\+\s//<CR>
 map <C-l> :%g/^$/d<CR>
@@ -345,4 +337,4 @@ map <leader>8 8gt
 map <leader>9 9gt
 map <leader>0 :tablast<CR>
 map <leader>n :tabn<CR>
-map <leader>p :tabp<CR>
+map <leader>m :tabp<CR>
