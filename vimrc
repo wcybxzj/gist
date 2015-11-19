@@ -23,7 +23,7 @@ Plugin 'Raimondi/delimitMate'
 "ds " 删除成对的 双引号
 Plugin 'tpope/vim-surround'
 "O垂直打开,p水平打开,t做为新tab
-"Plugin 'vim-scripts/mru.vim'
+Plugin 'vim-scripts/mru.vim'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'klen/python-mode'
 Plugin 'rkulla/pydiction'
