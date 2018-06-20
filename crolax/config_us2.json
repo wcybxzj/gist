@@ -1,0 +1,8 @@
+{
+    "server":["us02.cnode.xyz"],
+    "server_port":5642,
+    "local_port":1080,
+    "password":"viium4jsat",
+    "timeout":300,
+    "method":"aes-256-cfb"
+}
