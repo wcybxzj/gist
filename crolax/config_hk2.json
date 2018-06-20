@@ -1,0 +1,8 @@
+{
+    "server":["hk02.cnode.xyz"],
+    "server_port":8618,
+    "local_port":1080,
+    "password":"viium4jsat",
+    "timeout":300,
+    "method":"aes-256-cfb"
+}
