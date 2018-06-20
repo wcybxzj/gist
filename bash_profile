@@ -91,3 +91,10 @@ export PATH=$COCOS_TEMPLATES_ROOT:$PATH
 # Add environment variable ANT_ROOT for cocos2d-x
 export ANT_ROOT=/usr/local/Cellar/ant/1.9.4/libexec/bin
 export PATH=$ANT_ROOT:$PATH
+
+### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
+alias ssinit1='nohup sslocal -c /root/www/gist/crolax/config_us2.json &>> /var/log/sslocal.log &'
+alias ssinit2='nohup sslocal -c /root/www/gist/crolax/config_jp9.json &>> /var/log/sslocal.log &'
+alias sson='export http_proxy=http://127.0.0.1:8118 && export https_proxy=http://127.0.0.1:8118 && privoxy /etc/privoxy/config'
+alias ssoff='unset http_proxy && unset https_proxy && systemctl stop privoxy && pkill sslocal'
+### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
