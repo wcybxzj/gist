@@ -29,7 +29,7 @@ export PATH='/usr/local/sbin:/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin:usr/lo
 # mark
 export MARKPATH=$HOME/.marks
 #export MARKDEFAULT=sanguo#设置你的默认书签，可以直接输入g跳转
-function go {
+function g {
     local m=$1
     if [ "$m" = "" ]; then m=$MARKDEFAULT; fi
     cd -P "$MARKPATH/$m" 2>/dev/null || echo "No such mark: $m"
