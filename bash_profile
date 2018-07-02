@@ -99,7 +99,7 @@ alias ssinit2='nohup sslocal -c /root/www/gist/crolax/config_hk2.json &>> /var/l
 alias sson='export http_proxy=http://127.0.0.1:8118 && export https_proxy=http://127.0.0.1:8118 && export ftp_proxy=http://127.0.0.1:8118 && privoxy /etc/privoxy/config'
 alias ssoff='unset http_proxy && unset https_proxy && systemctl stop privoxy && pkill sslocal'
 ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
-export GOROOT=$HOME/go #go软件安装位置
+export GOROOT=/usr/local/go #go软件安装位置
 export PATH=$PATH:$GOROOT/bin #go自己的bin
 export GOPATH=$HOME/www/go_www #自己go的代码位置
 export PATH=$PATH:$GOPATH/bin #自己go的bin
