@@ -11,8 +11,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-scripts/snipMate'
 Plugin 'vim-scripts/taglist.vim'
-Plugin 'brookhong/DBGPavim'
-Plugin 'vim-scripts/DoxygenToolkit.vim'
 "? 开启帮助提示
 Plugin 'vim-scripts/The-NERD-tree'
 "补全括号和引号
@@ -27,10 +25,11 @@ Plugin 'vim-scripts/mru.vim'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'klen/python-mode'
 Plugin 'rkulla/pydiction'
+Plugin 'fatih/vim-go'
+Plugin 'Valloric/YouCompleteMe'
 " The default mapping to toggle the plugin is <Leader>ig
 "Plugin 'nathanaelkane/vim-indent-guides'
 "Plugin 'vim-scripts/netrw.vim'
-
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -266,7 +265,7 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
 set tags=tags;
 set autochdir"
-"set list listchars=tab:>-,trail:- "tab 显示
+set list listchars=tab:>-,trail:- "tab 显示
 
 function! MySetExecutableIfScript(line1, current_file)
 	if a:line1 =~ '^#!\(/usr\)*/bin/'
