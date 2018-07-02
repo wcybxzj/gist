@@ -99,5 +99,5 @@ alias ssinit2='nohup sslocal -c /root/www/gist/crolax/config_hk2.json &>> /var/l
 alias sson='export http_proxy=http://127.0.0.1:8118 && export https_proxy=http://127.0.0.1:8118 && export ftp_proxy=http://127.0.0.1:8118 && privoxy /etc/privoxy/config'
 alias ssoff='unset http_proxy && unset https_proxy && systemctl stop privoxy && pkill sslocal'
 ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
-
-export PATH=$PATH:/usr/local/go/bin
+export GOPATH=/root/www/go_www
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
