@@ -22,9 +22,6 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-surround'
 "O垂直打开,p水平打开,t做为新tab
 Plugin 'vim-scripts/mru.vim'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'klen/python-mode'
-Plugin 'rkulla/pydiction'
 Plugin 'fatih/vim-go'
 Plugin 'Valloric/YouCompleteMe'
 " The default mapping to toggle the plugin is <Leader>ig
