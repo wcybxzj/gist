@@ -23,7 +23,6 @@ Plugin 'tpope/vim-surround'
 "O垂直打开,p水平打开,t做为新tab
 Plugin 'vim-scripts/mru.vim'
 Plugin 'fatih/vim-go'
-Plugin 'Valloric/YouCompleteMe'
 " The default mapping to toggle the plugin is <Leader>ig
 "Plugin 'nathanaelkane/vim-indent-guides'
 "Plugin 'vim-scripts/netrw.vim'
@@ -58,6 +57,8 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+"防止vim-go ctrl+x+o 代码补全的时候上边出scratch window烦人
+set completeopt=menu
 
 if has("win32")
 	let g:OS#name = "win"
