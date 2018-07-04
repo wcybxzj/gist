@@ -9,8 +9,10 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-Plugin 'vim-scripts/snipMate'
-Plugin 'vim-scripts/taglist.vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 "? 开启帮助提示
 Plugin 'vim-scripts/The-NERD-tree'
 "补全括号和引号
@@ -23,6 +25,8 @@ Plugin 'tpope/vim-surround'
 "O垂直打开,p水平打开,t做为新tab
 Plugin 'vim-scripts/mru.vim'
 Plugin 'fatih/vim-go'
+Plugin 'Shougo/neocomplete'
+
 " The default mapping to toggle the plugin is <Leader>ig
 "Plugin 'nathanaelkane/vim-indent-guides'
 "Plugin 'vim-scripts/netrw.vim'
@@ -59,6 +63,9 @@ filetype plugin indent on    " required
 
 "防止vim-go ctrl+x+o 代码补全的时候上边出scratch window烦人
 set completeopt=menu
+
+"neocomplete 这样就能在启动 VIM 时自动开启实时补全功能。
+let g:neocomplete#enable_at_startup = 1
 
 if has("win32")
 	let g:OS#name = "win"
