@@ -9,10 +9,13 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+"vim go sinpmate begin
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+"vim go sinpmate end
+
 "? 开启帮助提示
 Plugin 'vim-scripts/The-NERD-tree'
 "补全括号和引号
@@ -26,6 +29,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/mru.vim'
 Plugin 'fatih/vim-go'
 Plugin 'Shougo/neocomplete'
+Plugin 'Lokaltog/vim-powerline'
 
 " The default mapping to toggle the plugin is <Leader>ig
 "Plugin 'nathanaelkane/vim-indent-guides'
@@ -175,18 +179,6 @@ set stl=\ %F%m%r%h\ [%{&fileformat},%{&fileencoding}]
 vmap <tab> >gv
 vmap <s-tab> <gv
 
-let g:use_bash="zsh"
-
-if g:OS#win
-	let g:ctags_path=$VIM.'\vimfiles\plugin\ctags.exe'
-	let Tlist_Ctags_Cmd=$VIM.'\vimfiles\plugin\ctags.exe'
-	let g:tagbar_ctags_bin=$VIM.'\vimfiles\plugin\ctags.exe'
-elseif g:OS#mac
-	let g:ctags_path='/usr/bin/ctags'
-	let list_Ctags_Cmd='/usr/bin/ctags'
-	let g:tagbar_ctags_bin='/usr/bin/ctags'
-else
-endif
 let g:ctags_statusline=1
 let g:ctags_args=1
 let g:Tlist_Use_Right_Window=1
@@ -194,50 +186,6 @@ let g:Tlist_Show_One_File = 1
 let g:Tlist_Exit_OnlyWindow = 1
 let g:Tlist_WinWidth=40
 nmap <leader><F12> :TlistToggle<CR>
-
-if g:OS#mac
-	imap <D-1> <Esc>:tabfirst<cr>
-	nmap <D-1> :tabfirst<cr>
-	imap <D-2> <Esc>2gt
-	nmap <D-2> 2gt
-	imap <D-3> <Esc>3gt
-	nmap <D-3> 3gt
-	imap <D-4> <Esc>4gt
-	nmap <D-4> 4gt
-	imap <D-5> <Esc>5gt
-	nmap <D-5> 5gt
-	imap <D-6> <Esc>6gt
-	nmap <D-6> 6gt
-	imap <D-7> <Esc>7gt
-	nmap <D-7> 7gt
-	imap <D-8> <Esc>8gt
-	nmap <D-8> 8gt
-	imap <D-9> <Esc>9gt
-	nmap <D-9> 9gt
-	imap <D-0> <Esc>:tablast<cr>
-	nmap <D-0> :tablast<cr>
-else
-	imap <M-1> <Esc>:tabfirst<cr>
-	nmap <M-1> :tabfirst<cr>
-	imap <M-2> <Esc>2gt
-	nmap <M-2> 2gt
-	imap <M-3> <Esc>3gt
-	nmap <M-3> 3gt
-	imap <M-4> <Esc>4gt
-	nmap <M-4> 4gt
-	imap <M-5> <Esc>5gt
-	nmap <M-5> 5gt
-	imap <M-6> <Esc>6gt
-	nmap <M-6> 6gt
-	imap <M-7> <Esc>7gt
-	nmap <M-7> 7gt
-	imap <M-8> <Esc>8gt
-	nmap <M-8> 8gt
-	imap <M-9> <Esc>9gt
-	nmap <M-9> 9gt
-	imap <M-0> <Esc>:tablast<cr>
-	nmap <M-0> :tablast<cr>
-endif
 
 " ybx ----------------setting--------------------
 " disable right scroll
@@ -280,34 +228,6 @@ function! MySetExecutableIfScript(line1, current_file)
 endfunction
 autocmd BufWritePost * call MySetExecutableIfScript(getline(1), expand("%:p"))
 
-"xdebug settings
-let g:dbgPavimPort = 9999
-let g:dbgPavimBreakAtEntry = 0
-"Remote debugging
-"let g:dbgPavimPathMap = [['/Users/yangbingxi/www','/home/wcybxzj/www'],]
-
-"pydiction
-let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
-
-"set cc=80
-"set cuc
-
-"-----------------------------------------------------------------
-" plugin - DoxygenToolkit.vim  由注释生成文档，并且能够快速生成函数标准注释
-"-----------------------------------------------------------------
-let g:DoxygenToolkit_compactDoc = "yes"
-let g:DoxygenToolkit_returnTag="@return "
-let g:DoxygenToolkit_paramTag_pre="@param "
-let g:DoxygenToolkit_blockHeader=""
-let g:DoxygenToolkit_blockFooter=""
-let g:DoxygenToolkit_authorName="yangbx@chuchujie.com"
-
-if(has("win32") || has("win95") || has("win64") || has("win16"))
-    let g:iswindows=1
-else
-    let g:iswindows=0
-endif
-
 function FuncUtf8Unix()
 	:set fenc=utf-8
 	:set fileformat=unix
@@ -329,17 +249,3 @@ map <C-k> :%s/\s\+$//<CR>
 map <C-h> :%s/^\+\s//<CR>
 map <C-l> :%g/^$/d<CR>
 map <C-e> :lclose<CR>
-
-"in linux not necessary use tabn tabp 来实现切换tab
-map <leader>1 1gt
-map <leader>2 2gt
-map <leader>3 3gt
-map <leader>4 4gt
-map <leader>5 5gt
-map <leader>6 6gt
-map <leader>7 7gt
-map <leader>8 8gt
-map <leader>9 9gt
-map <leader>0 :tablast<CR>
-map <leader>n :tabn<CR>
-map <leader>m :tabp<CR>
