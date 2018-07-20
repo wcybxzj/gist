@@ -65,37 +65,35 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-"防止vim-go ctrl+x+o 代码补全的时候上边出scratch window烦人
-set completeopt=menu
 
 "neocomplete 这样就能在启动 VIM 时自动开启实时补全功能。
 let g:neocomplete#enable_at_startup = 1
 
 if has("win32")
-	let g:OS#name = "win"
-	let g:OS#win = 1
-	let g:OS#mac = 0
-	let g:OS#unix = 0
+let g:OS#name = "win"
+let g:OS#win = 1
+let g:OS#mac = 0
+let g:OS#unix = 0
 elseif has("mac")
-	let g:OS#name = "mac"
-	let g:OS#mac = 1
-	let g:OS#win = 0
-	let g:OS#unix = 0
-	set fileformat=unix
-	set fileformats=unix,dos,mac
+let g:OS#name = "mac"
+let g:OS#mac = 1
+let g:OS#win = 0
+let g:OS#unix = 0
+set fileformat=unix
+set fileformats=unix,dos,mac
 elseif has("unix")
-	let g:OS#name = "unix"
-	let g:OS#unix = 1
-	let g:OS#win = 0
-	let g:OS#mac = 0
+let g:OS#name = "unix"
+let g:OS#unix = 1
+let g:OS#win = 0
+let g:OS#mac = 0
 endif
 if has("gui_running")
-	let g:OS#gui = 1
-	au GUIEnter * winpos 0 0
-	set lines=999 columns=9
+let g:OS#gui = 1
+au GUIEnter * winpos 0 0
+set lines=999 columns=9
 else
-	let g:OS#gui = 0
-	au GUIEnter * winpos 0 0
+let g:OS#gui = 0
+au GUIEnter * winpos 0 0
 endif
 
 
@@ -112,41 +110,41 @@ syntax on
 filetype on
 " theme, skin, color
 if g:OS#gui
-	" set default(normal) window size.
-	set columns=75
-	set lines=100
+" set default(normal) window size.
+set columns=75
+set lines=100
 endif
 colo desert
 
 
 if has('multi_byte_ime')
-	highlight Cursor guibg=#F0E68C guifg=#708090
-	highlight CursorIM guibg=Purple guifg=NONE
+highlight Cursor guibg=#F0E68C guifg=#708090
+highlight CursorIM guibg=Purple guifg=NONE
 endif
 if g:OS#win
-	set guifont=Courier_New:h15:cANSI
+set guifont=Courier_New:h15:cANSI
 elseif g:OS#mac
-	set guifont=Ayuthaya:h15
+set guifont=Ayuthaya:h15
 elseif g:OS#unix
 endif
 
 set nobackup
 if g:OS#win
-	set directory=$VIM\tmp
+set directory=$VIM\tmp
 else
-	set directory=.,$TEMP
+set directory=.,$TEMP
 endif
 
 if has("persistent_undo")
-	set undofile
-	set undolevels=1000
-	if g:OS#win
-		set undodir=$VIM\undodir
-		au BufWritePre undodir/* setlocal noundofile
-	else
-		set undodir=~/.undodir
-		au BufWritePre ~/.undodir/* setlocal noundofile
-	endif
+set undofile
+set undolevels=1000
+if g:OS#win
+	set undodir=$VIM\undodir
+	au BufWritePre undodir/* setlocal noundofile
+else
+	set undodir=~/.undodir
+	au BufWritePre ~/.undodir/* setlocal noundofile
+endif
 endif
 
 set softtabstop=4
@@ -162,14 +160,14 @@ set smartcase
 set number
 
 if g:OS#gui
-	set autochdir
+set autochdir
 endif
 
 set ambiwidth=double
 set history=500
 
 if g:OS#gui
-	set guitablabel=%M.%t
+set guitablabel=%M.%t
 endif
 
 
@@ -221,20 +219,19 @@ set autochdir"
 set list listchars=tab:>-,trail:- "tab 显示
 
 function! MySetExecutableIfScript(line1, current_file)
-	if a:line1 =~ '^#!\(/usr\)*/bin/'
-		let chmod_command = "silent !chmod ugo+x " . a:current_file
-		execute chmod_command
-	endif
+if a:line1 =~ '^#!\(/usr\)*/bin/'
+	let chmod_command = "silent !chmod ugo+x " . a:current_file
+	execute chmod_command
+endif
 endfunction
 autocmd BufWritePost * call MySetExecutableIfScript(getline(1), expand("%:p"))
 
 function FuncUtf8Unix()
-	:set fenc=utf-8
-	:set fileformat=unix
+:set fenc=utf-8
+:set fileformat=unix
 endfunction
 
-nmap <leader>pt :!php -l %<CR>
-nmap <leader>py :!python %<CR>
+let mapleader = ","
 map  <leader>- :set co=90<CR>:set lines=350<CR>
 map  <leader>= :set co=298<CR>:set lines=250<CR>
 map  <leader>] :set co=168<CR>:set lines=17<CR>
@@ -249,3 +246,42 @@ map <C-k> :%s/\s\+$//<CR>
 map <C-h> :%s/^\+\s//<CR>
 map <C-l> :%g/^$/d<CR>
 map <C-e> :lclose<CR>
+
+"=========================vim-go======================================
+"防止vim-go ctrl+x+o 代码补全的时候上边出scratch window烦人
+set completeopt=menu
+
+"go get github.com/nsf/gocode
+"go get github.com/alecthomas/gometalinter
+"go get golang.org/x/tools/cmd/goimports
+"go get golang.org/x/tools/cmd/guru",
+"go get golang.org/x/tools/cmd/gorename
+"go get github.com/golang/lint/golint
+"go get github.com/rogpeppe/godef
+"go get github.com/kisielk/errcheck
+"go get github.com/jstemmer/gotags
+"go get github.com/klauspost/asmfmt/cmd/asmfmt
+"go get github.com/fatih/motion
+"go get github.com/fatih/gomodifytags
+"go get github.com/zmb3/gogetdoc
+"go get github.com/josharian/impl
+"go get github.com/dominikh/go-tools/cmd/keyify
+" vim-go custom mappings
+au FileType go nmap <Leader>s <Plug>(go-implements)
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap <Leader>e <Plug>(go-rename)
+
+" vim-go settings
+let g:go_fmt_command = "goimports"
+
+
+
