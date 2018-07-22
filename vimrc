@@ -231,7 +231,12 @@ function FuncUtf8Unix()
 :set fileformat=unix
 endfunction
 
+nmap <leader>py :!python %<CR>
 let mapleader = ","
+nmap <leader>pt :!php -l %<CR>
+nmap <leader>py :!python %<CR>
+nmap <leader>r  :!go run %<CR>
+nmap <leader>:!python %<CR>
 map  <leader>- :set co=90<CR>:set lines=350<CR>
 map  <leader>= :set co=298<CR>:set lines=250<CR>
 map  <leader>] :set co=168<CR>:set lines=17<CR>
@@ -250,6 +255,7 @@ map <C-e> :lclose<CR>
 "=========================vim-go======================================
 "防止vim-go ctrl+x+o 代码补全的时候上边出scratch window烦人
 set completeopt=menu
+
 
 "go get github.com/nsf/gocode
 "go get github.com/alecthomas/gometalinter
@@ -271,7 +277,7 @@ au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-au FileType go nmap <leader>r <Plug>(go-run)
+"au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
