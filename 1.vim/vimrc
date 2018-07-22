@@ -10,11 +10,14 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 "vim go sinpmate begin
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
+"Plugin 'MarcWeber/vim-addon-mw-utils'
+"Plugin 'tomtom/tlib_vim'
+"Plugin 'garbas/vim-snipmate'
+"Plugin 'honza/vim-snippets'
 "vim go sinpmate end
+
+Plugin 'Valloric/YouCompleteMe'
+
 
 "? 开启帮助提示
 Plugin 'vim-scripts/The-NERD-tree'
@@ -214,7 +217,7 @@ set foldclose=all          " 设置为自动关闭折叠
 set foldmethod=indent "set default foldmethod
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
-set tags=tags,/usr/local/go/src/tags,/root/www/go_www/src/tags;
+set tags=tags,/usr/local/go/src/tags;
 set autochdir"
 set list listchars=tab:>-,trail:- "tab 显示
 
