@@ -214,7 +214,7 @@ set foldclose=all          " 设置为自动关闭折叠
 set foldmethod=indent "set default foldmethod
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
-set tags=tags,/usr/local/go/src/tags;
+set tags=tags,/usr/local/go/src/tags,/root/www/go_www/src/tags;
 set autochdir"
 set list listchars=tab:>-,trail:- "tab 显示
 
@@ -231,7 +231,6 @@ function FuncUtf8Unix()
 :set fileformat=unix
 endfunction
 
-nmap <leader>py :!python %<CR>
 let mapleader = ","
 nmap <leader>pt :!php -l %<CR>
 nmap <leader>py :!python %<CR>
@@ -257,21 +256,7 @@ map <C-e> :lclose<CR>
 set completeopt=menu
 
 
-"go get github.com/nsf/gocode
-"go get github.com/alecthomas/gometalinter
-"go get golang.org/x/tools/cmd/goimports
-"go get golang.org/x/tools/cmd/guru",
-"go get golang.org/x/tools/cmd/gorename
-"go get github.com/golang/lint/golint
-"go get github.com/rogpeppe/godef
-"go get github.com/kisielk/errcheck
-"go get github.com/jstemmer/gotags
-"go get github.com/klauspost/asmfmt/cmd/asmfmt
-"go get github.com/fatih/motion
-"go get github.com/fatih/gomodifytags
-"go get github.com/zmb3/gogetdoc
-"go get github.com/josharian/impl
-"go get github.com/dominikh/go-tools/cmd/keyify
+"先去执行1.vim_go.sh 下载支持的扩展
 " vim-go custom mappings
 au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>i <Plug>(go-info)
