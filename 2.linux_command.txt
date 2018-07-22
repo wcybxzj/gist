@@ -1,0 +1,4 @@
+1.递归查找目录可执行文件,并且删除 (直接就删除了千万小心!!!!!!)
+find . -executable -type f;
+find . -executable -type f -exec rm {} \;
+
