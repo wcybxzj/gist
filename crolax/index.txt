@@ -5,7 +5,7 @@ nohup /usr/bin/python2 /usr/bin/sslocal -c /root/www/gist/crolax/config_us2.json
 
 yum install privoxy
 vim /etc/privoxy/config
-forward-socks5t / 127.0.0.1:9050  . 修改为forward-socks5t / 127.0.0.1:1080 .
+forward-socks5t / 127.0.0.1:9050  . 修改为forward-socks5t / 127.0.0.1:9080 .
 privoxy /etc/privoxy/config
 
 vim /etc/profile
