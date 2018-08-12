@@ -7,3 +7,9 @@ install languages
 sudo apt-get install fcitx-bin
 sudo apt-get install fcitx-table
 reboot
+
+2.vidoes 播放mp4:
+apt-get install ubuntu-restricted-extras
+apt-get install gstreamer1.0-plugins-bad
+
+
