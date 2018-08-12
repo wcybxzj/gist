@@ -1,0 +1,9 @@
+1.sogou:
+https://blog.csdn.net/fx_yzjy101/article/details/80243710
+
+ubuntu language ans support 
+install languages
+
+sudo apt-get install fcitx-bin
+sudo apt-get install fcitx-table
+reboot

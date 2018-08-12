@@ -103,3 +103,5 @@ export GOROOT=/usr/local/go #go软件安装位置
 export PATH=$PATH:$GOROOT/bin #go自己的bin
 export GOPATH=$HOME/www/go_www #自己go的代码位置
 export PATH=$PATH:$GOPATH/bin #自己go的bin
+### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
+alias ll='ls -l'

@@ -1,13 +1,3 @@
-[google-chrome]
-name=google-chrome
-baseurl=http://dl.google.com/linux/chrome/rpm/stable/$basearch
-enabled=1
-gpgcheck=1
-gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub
-
-yum -y install google-chrome-stable --nogpgcheck
-
-从application拉出chrome到桌面属性加上--no-sandbox
-
-
+vim /opt/google/chrome/google-chrome
+exec -a "$0" "$HERE/chrome" "$@" --no-sandbox
 
