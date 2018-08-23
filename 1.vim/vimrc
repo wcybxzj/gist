@@ -277,4 +277,6 @@ au FileType go nmap <Leader>e <Plug>(go-rename)
 let g:go_fmt_command = "goimports"
 
 
-
+"解决屏幕闪烁问题
+set novisualbell
+set visualbell t_vb=
