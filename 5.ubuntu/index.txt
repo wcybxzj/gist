@@ -1,21 +1,58 @@
+0.ubuntu root登录
+第一步:
+sudo passwd root 
+
+第二步:
+修改文件/usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf文件，增加两行： 
+greeter-show-manual-login=true 
+all-guest=false 
+
+第三步：进入/etc/pam.d目录，修改gdm-autologin和gdm-password文件 
+vi gdm-autologin 
+注释掉auth required pam_succeed_if.so user != root quiet_success这一行，保存 
+vi gdm-password 
+注释掉 auth required pam_succeed_if.so user != root quiet_success这一行，保存
+
+第四步：修改/root/.profile文件 
+vi /root/.profile 
+将文件末尾的mesg n || true这一行修改成tty -s&&mesg n || true， 保存
+
+第五步：重启系统，输入root用户名和密码，登录系统。
+
+=================================================================================
 1.sogou:
 https://blog.csdn.net/fx_yzjy101/article/details/80243710
 
-ubuntu language ans support 
-install languages
+ubuntu language and support 
+manage install languages 安装语言包
 
 sudo apt-get install fcitx-bin
 sudo apt-get install fcitx-table
+
+ubuntu language and support 
+键盘输入法使用fcitx
+
+下载并且安装sougou
+dpkg -i sogou.deb
+
 reboot
 
+=================================================================================
 2.vidoes 播放mp4:
 apt-get install ubuntu-restricted-extras
 apt-get install gstreamer1.0-plugins-bad
 
+=================================================================================
 3.dingding:
 https://blog.csdn.net/gozs_cs_dn/article/details/80230935
 dpkg -i dingding.deb
+:q
 apt-get update
 apt-get upgrade
 apt --fix-broken install
 dpkg -i dingding.deb
+
+=================================================================================
+=================================================================================
+=================================================================================
+=================================================================================
