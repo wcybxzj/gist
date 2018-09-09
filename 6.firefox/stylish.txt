@@ -1,0 +1,25 @@
+body  {background-color:#AEC8AE !important;}
+table {background-color:#AEC8AE !important;}
+td    {background-color:#AEC8AE !important;}
+div    {background-color:#AEC8AE !important;}
+span    {background-color:#AEC8AE !important;}
+code    {background-color:#AEC8AE !important;}
+pre    {background-color:#AEC8AE !important;}
+#container    {background-color:#AEC8AE !important;}
+#wrapper      {background-color:#AEC8AE !important;}
+#mainwrapper  {background-color:#AEC8AE !important;}
+#main-wrapper {background-color:#AEC8AE !important;}
+#content      {background-color:#AEC8AE !important;}
+#maincontent  {background-color:#AEC8AE !important;}
+#main-content {background-color:#AEC8AE !important;}
+#main         {background-color:#AEC8AE !important;}
+.container    {background-color:#AEC8AE !important;}
+.wrapper      {background-color:#AEC8AE !important;}
+.mainwrapper  {background-color:#AEC8AE !important;}
+.main-wrapper {background-color:#AEC8AE !important;}
+.content      {background-color:#AEC8AE !important;}
+.maincontent  {background-color:#AEC8AE !important;}
+.main-content {background-color:#AEC8AE !important;}
+.main         {background-color:#AEC8AE !important;}
+.gb-page-inner{background-color:#AEC8AE !important;}
+.panel-body   {background-color:#AEC8AE !important;}
