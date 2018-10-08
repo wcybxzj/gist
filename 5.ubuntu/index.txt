@@ -49,6 +49,8 @@ dpkg -i sogou.deb
 reboot
 
 =================================================================================
+apt  install    gnome-tweaks
+=================================================================================
 2.vidoes 播放mp4:
 apt-get install ubuntu-restricted-extras
 apt-get install gstreamer1.0-plugins-bad
@@ -57,7 +59,6 @@ apt-get install gstreamer1.0-plugins-bad
 3.dingding:
 https://blog.csdn.net/gozs_cs_dn/article/details/80230935
 dpkg -i dingding.deb
-:q
 apt-get update
 apt-get upgrade
 apt --fix-broken install
