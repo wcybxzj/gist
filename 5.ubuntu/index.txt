@@ -20,14 +20,25 @@ vi /root/.profile
 第五步：重启系统，输入root用户名和密码，登录系统。
 
 =================================================================================
-1.sogou:
+1.vmware tools
+=================================================================================
+2.ssh
+安装ssh服务器
+apt-get install openssh-server
+配置sshd文件
+sudo vi /etc/ssh/sshd_config
+PermitRootLogin yes （默认为#PermitRootLogin prohibit-password）
+重启服务器:
+service ssh restart
+=================================================================================
+3.sogou:
 https://blog.csdn.net/fx_yzjy101/article/details/80243710
 
 ubuntu language and support 
 manage install languages 安装语言包
 
-sudo apt-get install fcitx-bin
-sudo apt-get install fcitx-table
+apt-get install fcitx-bin
+apt-get install fcitx-table
 
 ubuntu language and support 
 键盘输入法使用fcitx
