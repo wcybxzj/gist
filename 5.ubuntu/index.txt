@@ -44,7 +44,7 @@ ubuntu language and support
 键盘输入法使用fcitx
 
 下载并且安装sougou
-dpkg -i sogou.deb
+安装一定要用图形界面安装
 
 reboot
 
