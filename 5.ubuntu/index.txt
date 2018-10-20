@@ -44,19 +44,27 @@ ubuntu language and support
 键盘输入法使用fcitx
 
 下载并且安装sougou
-dpkg -i sogou.deb
+安装一定要用图形界面安装
 
 reboot
 
 =================================================================================
-4.tweak:
+4.sawp
+dd if=/dev/zero of=/root/swapfile bs=1M count=7168
+mkswap /root/swapfile
+swapon /root/swapfile
+chmod 0600 /root/swapfile
+vim /etc/fstab
+/root/swapfile swap swap defaults 0 0
+=================================================================================
+5.tweak:
 apt  install    gnome-tweaks
 =================================================================================
-5.crolax
+6.crolax
 =================================================================================
-6.docker
+7.docker
 =================================================================================
-7.golang
+8.golang
 =================================================================================
 2.vidoes 播放mp4:
 apt-get install ubuntu-restricted-extras
