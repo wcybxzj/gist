@@ -1,0 +1,5 @@
+apt update
+apt install default-jre
+java -version
+apt install default-jdk
+javac -version
