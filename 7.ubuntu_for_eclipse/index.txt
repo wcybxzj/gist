@@ -1,0 +1,22 @@
+eclispe添加到左边快捷启动
+
+1.
+vim /usr/share/applications/eclipse.desktop 
+[Desktop Entry]
+Encoding=UTF-8
+Name=Eclipse
+Comment=Eclipse IDE
+Exec=/root/soft/eclipse-oxygen/eclipse/eclipse
+Icon=/root/soft/eclipse-oxygen/eclipse/icon.xpm
+Terminal=false
+StartupNotify=true
+Type=Application
+Categories=Application;Development;
+
+2.
+chmod a+x /usr/share/applications/eclipse.desktop
+
+3.
+cd /usr/share/applications/
+nautilus .
+打开eclipse,在左边就可以add favorites
