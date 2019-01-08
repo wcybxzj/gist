@@ -105,3 +105,6 @@ export GOPATH=$HOME/www/go_www #自己go的代码位置
 export PATH=$PATH:$GOPATH/bin #自己go的bin
 ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
 alias ll='ls -l'
+export ETCDCTL_API=3
+export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+export PATH=$JAVA_HOME/bin:$PATH
