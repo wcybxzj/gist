@@ -7,13 +7,11 @@ alias llf='ll|grep "^-"'
 alias lll='ll|grep "^l"'
 alias g='grep -rn --color=auto'
 
+#为macos terminal设置的颜色
 export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 alias ls='ls -GFh'
-
-
-
 
 #alias p2='arch -i386 python'
 #alias p3='python3'
@@ -63,6 +61,9 @@ _completemarks() {
 }
 complete -F _completemarks g unmark
 
+### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
+#mac os qmake位置
+export PATH=$PATH:/Users/ybx/app/Qt5.11.3/5.11.3/clang_64/bin
 ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
 alias ssinit1='nohup sslocal -c /root/www/gist/crolax/config_us2.json &>> /var/log/sslocal.log &'
 alias ssinit2='nohup sslocal -c /root/www/gist/crolax/config_jp9.json &>> /var/log/sslocal.log &'
