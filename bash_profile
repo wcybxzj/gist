@@ -7,12 +7,6 @@ alias llf='ll|grep "^-"'
 alias lll='ll|grep "^l"'
 alias g='grep -rn --color=auto'
 
-#为macos terminal设置的颜色
-export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
-export CLICOLOR=1
-export LSCOLORS=ExFxBxDxCxegedabagacad
-alias ls='ls -GFh'
-
 #alias p2='arch -i386 python'
 #alias p3='python3'
 #alias mongod='sudo mongod --config /usr/local/etc/mongod.conf &'
