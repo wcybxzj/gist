@@ -72,5 +72,6 @@ export PATH=$PATH:$GOPATH/bin #自己go的bin
 ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
 alias ll='ls -l'
 export ETCDCTL_API=3
-export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+#export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export PATH=$JAVA_HOME/bin:$PATH

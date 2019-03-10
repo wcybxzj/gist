@@ -3,3 +3,9 @@ apt install default-jre
 java -version
 apt install default-jdk
 javac -version
+
+jdk8
+apt-get update
+apt-get install openjdk-8-jdk
+ln -s /root/www/gist/bash_profile /etc/bash.bashrc
+source /etc/bash.bashrc
