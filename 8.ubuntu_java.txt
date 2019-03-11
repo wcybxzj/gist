@@ -5,8 +5,8 @@ java -version
 apt install default-jdk
 javac -version
 =====================================
-jdk8:
-apt-get install oracle-java8-installer
-注意修改Java变量 /etc/bash.bashrc
-idea也要修改jdk位置:/usr/lib/jvm/java-8-oracle
-java -version
+jdk8
+apt-get update
+apt-get install openjdk-8-jdk
+ln -s /root/www/gist/bash_profile /etc/bash.bashrc
+source /etc/bash.bashrc
