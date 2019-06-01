@@ -103,7 +103,7 @@ ubuntu18 禁止apt自动更新
 java升级到11 eclipse-cdt直接不能用了
 
 #０是关闭，1是开启，将所有值改为0
-vi etc/apt/apt.conf.d/10periodic
+vim /etc/apt/apt.conf.d/10periodic
 
 APT::Periodic::Update-Package-Lists "0";
 APT::Periodic::Download-Upgradeable-Packages "0";
