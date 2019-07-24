@@ -78,3 +78,7 @@ export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_221
 export JRE_HOME=${JAVA_HOME}/jre
 export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 export PATH=${JAVA_HOME}/bin:$PATH
+
+MAVEN_HOME=/root/soft/apache-maven-3.6.1
+PATH=$MAVEN_HOME/bin:$PATH
+export MAVEN_HOME PATH
