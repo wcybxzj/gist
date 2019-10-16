@@ -62,6 +62,7 @@ export PATH=$PATH:/Users/ybx/app/Qt5.11.3/5.11.3/clang_64/bin
 alias ssinit1='nohup sslocal -c /root/www/gist/crolax/config_us2.json &>> /var/log/sslocal.log &'
 alias ssinit2='nohup sslocal -c /root/www/gist/crolax/config_jp9.json &>> /var/log/sslocal.log &'
 alias ssinit3='nohup sslocal -c /root/www/gist/crolax/config_hk2.json &>> /var/log/sslocal.log &'
+alias ssinit4='nohup sslocal -c /root/www/gist/crolax/config_us8.json &>> /var/log/sslocal.log &'
 alias sson='export http_proxy=http://127.0.0.1:8118 && export https_proxy=http://127.0.0.1:8118 && export ftp_proxy=http://127.0.0.1:8118 && privoxy /etc/privoxy/config'
 alias ssoff='unset http_proxy && unset https_proxy && systemctl stop privoxy && pkill sslocal'
 ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
@@ -72,8 +73,6 @@ export PATH=$PATH:$GOPATH/bin #自己go的bin
 ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
 alias ll='ls -l'
 export ETCDCTL_API=3
-#export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
-#export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home
 export M2_HOME=$HOME/soft/apache-maven-3.6.1
 export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
@@ -81,5 +80,4 @@ export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 #export GOPROXY=https://goproxy.io
 export http_proxy=http://127.0.0.1:1087
 export https_proxy=http://127.0.0.1:1087
-
 export NAMESRV_ADDR='127.0.0.1:9876;127.0.0.1:9877'
