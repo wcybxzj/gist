@@ -73,9 +73,13 @@ export PATH=$PATH:$GOPATH/bin #自己go的bin
 alias ll='ls -l'
 export ETCDCTL_API=3
 #export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
-<<<<<<< HEAD
-export JAVA_HOME=/usr/lib/jvm/java-8-oracle
-=======
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
->>>>>>> 6e8fdfb0b7cbb85f7b6fb12ac2703c643206f0b6
-export PATH=$JAVA_HOME/bin:$PATH
+#export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home
+export M2_HOME=$HOME/soft/apache-maven-3.6.1
+export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
+#export GO111MODULE=on
+#export GOPROXY=https://goproxy.io
+export http_proxy=http://127.0.0.1:1087
+export https_proxy=http://127.0.0.1:1087
+
+export NAMESRV_ADDR='127.0.0.1:9876;127.0.0.1:9877'
