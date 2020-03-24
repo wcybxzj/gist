@@ -73,12 +73,11 @@ export PATH=$PATH:$GOPATH/bin #自己go的bin
 ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
 alias ll='ls -l'
 export ETCDCTL_API=3
-############https://www.cnblogs.com/smiler/p/6939913.html#############
-export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_221
-export JRE_HOME=${JAVA_HOME}/jre
-export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
-export PATH=${JAVA_HOME}/bin:$PATH
-
-MAVEN_HOME=/root/soft/apache-maven-3.6.1
-PATH=$MAVEN_HOME/bin:$PATH
-export MAVEN_HOME PATH
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home
+export M2_HOME=$HOME/soft/apache-maven-3.6.1
+export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
+#export GO111MODULE=on
+#export GOPROXY=https://goproxy.io
+export http_proxy=http://127.0.0.1:1087
+export https_proxy=http://127.0.0.1:1087
+export NAMESRV_ADDR='127.0.0.1:9876;127.0.0.1:9877'
