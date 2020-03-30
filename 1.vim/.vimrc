@@ -253,6 +253,8 @@ map <C-h> :%s/^\+\s//<CR>
 map <C-l> :%g/^$/d<CR>
 map <C-e> :lclose<CR>
 
+
+
 "=========================vim-go======================================
 "防止vim-go ctrl+x+o 代码补全的时候上边出scratch window烦人
 set completeopt=menu
@@ -281,14 +283,13 @@ let g:go_fmt_command = "goimports"
 set novisualbell
 set visualbell t_vb=
 
-
 """""""""""""新建文件标题"""""""""""""""
 
 "新建.c,.h,.sh,.java 文件时,自动插入头文件
-autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java exec ":call SetTitle()" 
+autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java exec ":call SetTitle()"
 
 "定义函数 Setitle, 自动插入头文件
-func SetTitle() 
+func SetTitle()
     "如果文件类型为.cpp
     if &filetype == 'cpp'
         call setline(1, "#include <iostream>")
@@ -311,7 +312,7 @@ func SetTitle()
         call append(line(".")+3, "#include <errno.h>")
         call append(line(".")+4, "#include <pthread.h>")
         call append(line(".")+5, "")
-    
+
        call append(line(".")+6, "void sys_err(const char *str)")
        call append(line(".")+7, "{")
        call append(line(".")+8, "\tperror(str);")
@@ -324,6 +325,22 @@ func SetTitle()
         call append(line(".")+14, "")
         call append(line(".")+15, "\treturn 0;")
         call append(line(".")+16, "}")
+
+		"call append(line(".")+11, "void err_thread(int ret, char *str)")
+		"call append(line(".")+12, "{")
+		"call append(line(".")+13, "\tif (ret != 0) {")
+		"call append(line(".")+14, "\t\tfprintf(stderr, \"%s:%s\\n\", str, strerror\(ret));")
+		"call append(line(".")+15, "\t\tpthread_exit(NULL);")
+		"call append(line(".")+16, "\t}")
+		"call append(line(".")+17, "}")
+
+        "call append(line(".")+18, "")
+        "call append(line(".")+19, "int main(int argc, char *argv[])")
+        "call append(line(".")+20, "{")
+        "call append(line(".")+21, "")
+        "call append(line(".")+22, "\treturn 0;")
+        "call append(line(".")+23, "}")
+
     endif
 
     "自动将光标定位到末尾
