@@ -3,8 +3,8 @@
 Encoding=UTF-8
 Name=goland
 Comment=goland
-Exec=/root/soft/GoLand-2018.2/bin/goland.sh
-Icon=/root/soft/GoLand-2018.2/bin/goland.png
+Exec=/root/soft/GoLand/bin/goland.sh
+Icon=/root/soft/GoLand/bin/goland.png
 Terminal=false
 StartupNotify=true
 Type=Application

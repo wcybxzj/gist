@@ -1,3 +1,0 @@
-http://git.10ln.com:1027
-cp goland.desktop /usr/share/applications
-cp goland.desktop /root/Desktop/
