@@ -1,20 +1,20 @@
 0.ubuntu root登录
 第一步:
-sudo passwd root 
+sudo passwd root
 
 第二步:
-修改文件/usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf文件，增加两行： 
-greeter-show-manual-login=true 
-all-guest=false 
+修改文件/usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf文件，增加两行：
+greeter-show-manual-login=true
+all-guest=false
 
-第三步：进入/etc/pam.d目录，修改gdm-autologin和gdm-password文件 
-vi gdm-autologin 
-注释掉auth required pam_succeed_if.so user != root quiet_success这一行，保存 
-vi gdm-password 
+第三步：进入/etc/pam.d目录，修改gdm-autologin和gdm-password文件
+vi gdm-autologin
+注释掉auth required pam_succeed_if.so user != root quiet_success这一行，保存
+vi gdm-password
 注释掉 auth required pam_succeed_if.so user != root quiet_success这一行，保存
 
-第四步：修改/root/.profile文件 
-vi /root/.profile 
+第四步：修改/root/.profile文件
+vi /root/.profile
 将文件末尾的mesg n || true这一行修改成tty -s&&mesg n || true， 保存
 
 第五步：重启系统，输入root用户名和密码，登录系统。
@@ -34,13 +34,13 @@ service ssh restart
 3.sogou:
 https://blog.csdn.net/fx_yzjy101/article/details/80243710
 
-ubuntu language and support 
+ubuntu language and support
 manage install languages 安装语言包
 
 apt-get install fcitx-bin
 apt-get install fcitx-table
 
-ubuntu language and support 
+ubuntu language and support
 键盘输入法使用fcitx
 
 下载并且安装sougou
@@ -109,3 +109,13 @@ APT::Periodic::Update-Package-Lists "0";
 APT::Periodic::Download-Upgradeable-Packages "0";
 APT::Periodic::AutocleanInterval "0";
 =================================================================================
+解决ubuntu18 dns不能用的问题
+
+apt install resolvconf
+
+head /etc/resolvconf/resolv.conf.d/head
+nameserver 8.8.4.4
+nameserver 8.8.8.8
+
+service resolvconf restart
+
